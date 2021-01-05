@@ -1,0 +1,26 @@
+{
+  "name": "vanilla-javascript-crud",
+  "version": "1.0.0",
+  "description": "우아한 테크코스의 프리코스에서 배운 코드 컨벤션을 복습하며",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0307kwon/vanilla-javascript-crud.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0307kwon/vanilla-javascript-crud/issues"
+  },
+  "homepage": "https://github.com/0307kwon/vanilla-javascript-crud#readme",
+  "devDependencies": {
+    "eslint": "^7.17.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
+  }
+}
