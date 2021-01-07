@@ -1,5 +1,5 @@
 import { ID, TEMPLATE } from "../common/variable.js";
-import { setInnerHTMLByID } from "../utility/html-utils.js";
+import { makeTable, setInnerHTMLByID } from "../utility/html-utils.js";
 import View from "./view.js";
 
 export default class BoardView extends View {
@@ -8,5 +8,11 @@ export default class BoardView extends View {
   }
   setInitialView() {
     setInnerHTMLByID(ID.CONTENTS_CONTAINER, TEMPLATE.BOARD_CONTENTS);
+    //this.setBoardList();
+  }
+
+  setBoardList(boardList) {
+    const table = makeTable(TEMPLATE.BOARD_TABLE_HEADER, boardList);
+    setInnerHTMLByID(ID.BOARD_LIST_CONTAINER, table.outerHTML);
   }
 }
