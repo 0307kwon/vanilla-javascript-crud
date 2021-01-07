@@ -4,12 +4,10 @@ export function setInnerHTMLByID(id, innerHTML) {
   const container = document.getElementById(id);
   container.innerHTML = innerHTML;
 }
-
 export function setClickEventByID(id, event) {
   const button = document.getElementById(id);
   button.addEventListener("click", event);
 }
-
 export function makeTable(tableHeader, tableList) {
   if (tableList.length === 0 || tableList === null) {
     throw ERROR.EMPTY_TABLE_INPUT;
@@ -22,6 +20,12 @@ export function makeTable(tableHeader, tableList) {
   _appendTableHeader(table, tableHeader);
   _appendTableList(table, tableList);
   return table;
+}
+export function makeElement({ tag = "div", cssText, innerHTML }) {
+  const element = document.createElement(tag);
+  if (cssText) element.style.cssText = cssText;
+  if (innerHTML) element.innerHTML = innerHTML;
+  return element;
 }
 
 function _appendTableHeader(table, tableHeader) {
@@ -36,18 +40,22 @@ function _appendTableList(table, tableList) {
 }
 
 function _makeTableRow(row) {
-  const tr = document.createElement("tr");
+  const tr = makeElement({ tag: "tr" });
   row.forEach((element) => {
-    const td = document.createElement("td");
-    td.style.cssText = CSS_STYLE.BOARD_TABLE;
-    td.innerHTML = element;
+    const td = makeElement({
+      tag: "td",
+      cssText: CSS_STYLE.BOARD_TABLE,
+      innerHTML: element,
+    });
     tr.appendChild(td);
   });
   return tr;
 }
 function _makeTableHeader(text) {
-  const th = document.createElement("th");
-  th.style.cssText = CSS_STYLE.BOARD_TABLE;
-  th.innerHTML = text;
+  const th = makeElement({
+    tag: "th",
+    cssText: CSS_STYLE.BOARD_TABLE,
+    innerHTML: text,
+  });
   return th;
 }
