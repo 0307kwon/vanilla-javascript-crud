@@ -5,7 +5,12 @@ export const ID = {
   NAVIGATION_BOARD_BUTTON: "board-button",
 
   CONTENTS_CONTAINER: "contents-container",
-  BOARD_LIST_CONTAINER: "board-list-container",
+
+  BOARD_MENU_CONTAINER: "board-menu-container",
+  BOARD_CONTENTS_CONTAINER: "board-contents-container",
+  BOARD_CREATE_BUTTON: "board-create-button",
+  BOARD_UPDATE_BUTTON: "board-update-button",
+  BOARD_DELETE_BUTTON: "board-delete-button",
 };
 
 export const ERROR = {
@@ -32,8 +37,14 @@ export const TEMPLATE = {
   `,
   BOARD_CONTENTS: `
   <h3>🎨 게시판 페이지</h3>
-  <div id="${ID.BOARD_LIST_CONTAINER}"></div>
+  <div id="${ID.BOARD_MENU_CONTAINER}"></div>
+  <p></p>
+  <div id="${ID.BOARD_CONTENTS_CONTAINER}"></div>
   `,
-
+  BOARD_MENU: `
+  <button id=${ID.BOARD_CREATE_BUTTON}>게시물 작성</button>
+  <button id=${ID.BOARD_UPDATE_BUTTON}>게시물 수정</button>
+  <button id=${ID.BOARD_DELETE_BUTTON}>게시물 삭제</button>
+  `,
   BOARD_TABLE_HEADER: ["번호", "제목", "작성자", "조회수"],
 };

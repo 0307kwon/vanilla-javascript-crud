@@ -8,11 +8,13 @@ export default class BoardView extends View {
   }
   setInitialView() {
     setInnerHTMLByID(ID.CONTENTS_CONTAINER, TEMPLATE.BOARD_CONTENTS);
-    //this.setBoardList();
+    this.setMenu();
   }
-
+  setMenu() {
+    setInnerHTMLByID(ID.BOARD_MENU_CONTAINER, TEMPLATE.BOARD_MENU);
+  }
   setBoardList(boardList) {
     const table = makeTable(TEMPLATE.BOARD_TABLE_HEADER, boardList);
-    setInnerHTMLByID(ID.BOARD_LIST_CONTAINER, table.outerHTML);
+    setInnerHTMLByID(ID.BOARD_CONTENTS_CONTAINER, table.outerHTML);
   }
 }

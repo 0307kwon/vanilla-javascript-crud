@@ -38,7 +38,6 @@ function _appendTableList(table, tableList) {
     table.appendChild(_makeTableRow(row));
   });
 }
-
 function _makeTableRow(row) {
   const tr = makeElement({ tag: "tr" });
   row.forEach((element) => {
