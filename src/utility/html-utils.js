@@ -1,4 +1,4 @@
-import { CSS_STYLE, ERROR } from "../common/variable.js";
+import { CSS_STYLE } from "../common/variable.js";
 
 export function setInnerHTMLByID(id, innerHTML) {
   const container = document.getElementById(id);
@@ -9,12 +9,6 @@ export function setClickEventByID(id, event) {
   button.addEventListener("click", event);
 }
 export function makeTable(tableHeader, tableList) {
-  if (tableList.length === 0 || tableList === null) {
-    throw ERROR.EMPTY_TABLE_INPUT;
-  }
-  if (tableList.some((element) => element.length !== tableHeader.length)) {
-    throw ERROR.INVALID_TABLE_LENGTH_INPUT;
-  }
   const table = document.createElement("table");
   table.style.cssText = CSS_STYLE.BOARD_TABLE;
   _appendTableHeader(table, tableHeader);
@@ -34,21 +28,24 @@ function _appendTableHeader(table, tableHeader) {
   });
 }
 function _appendTableList(table, tableList) {
-  tableList.forEach((row) => {
-    table.appendChild(_makeTableRow(row));
+  tableList.forEach((post, index) => {
+    table.appendChild(_makeTableRow(index, post));
   });
 }
-function _makeTableRow(row) {
+function _makeTableRow(index, post) {
   const tr = makeElement({ tag: "tr" });
-  row.forEach((element) => {
-    const td = makeElement({
-      tag: "td",
-      cssText: CSS_STYLE.BOARD_TABLE,
-      innerHTML: element,
-    });
-    tr.appendChild(td);
-  });
+  tr.appendChild(_makeTableTd(String(index)));
+  tr.appendChild(_makeTableTd(post.title));
+  tr.appendChild(_makeTableTd("작성자 모름"));
+  tr.appendChild(_makeTableTd("조회수 모름"));
   return tr;
+}
+function _makeTableTd(innerHTML) {
+  return makeElement({
+    tag: "td",
+    cssText: CSS_STYLE.BOARD_TABLE,
+    innerHTML: innerHTML,
+  });
 }
 function _makeTableHeader(text) {
   const th = makeElement({
