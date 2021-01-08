@@ -8,7 +8,12 @@ export const ID = {
 
   BOARD_MENU_CONTAINER: "board-menu-container",
   BOARD_CONTENTS_CONTAINER: "board-contents-container",
+  BOARD_LIST_BUTTON: "board-list-button",
   BOARD_CREATE_BUTTON: "board-create-button",
+  BOARD_CREATE_POST_TITLE: "board-create-post-title",
+  BOARD_CREATE_POST_CONTENTS: "board-create-post-contents",
+  BOARD_CREATE_POST_BUTTON: "board-create-post-button",
+
   BOARD_UPDATE_BUTTON: "board-update-button",
   BOARD_DELETE_BUTTON: "board-delete-button",
 };
@@ -42,9 +47,19 @@ export const TEMPLATE = {
   <div id="${ID.BOARD_CONTENTS_CONTAINER}"></div>
   `,
   BOARD_MENU: `
-  <button id=${ID.BOARD_CREATE_BUTTON}>게시물 작성</button>
-  <button id=${ID.BOARD_UPDATE_BUTTON}>게시물 수정</button>
-  <button id=${ID.BOARD_DELETE_BUTTON}>게시물 삭제</button>
+  <button id=${ID.BOARD_LIST_BUTTON}>목록</button>
+  <button id=${ID.BOARD_CREATE_BUTTON}>작성</button>
+  <button id=${ID.BOARD_UPDATE_BUTTON}>수정</button>
+  <button id=${ID.BOARD_DELETE_BUTTON}>삭제</button>
   `,
   BOARD_TABLE_HEADER: ["번호", "제목", "작성자", "조회수"],
+  BOARD_CREATE_CONTENTS: `
+  <p>
+    <input type="text" id=${ID.BOARD_CREATE_POST_TITLE} placeHolder="제목을 입력하세요" />
+  </p>
+  <p>
+    <textArea id=${ID.BOARD_CREATE_POST_CONTENTS} placeHolder="내용을 입력하세요"></textArea>
+  </p>
+  <button id=${ID.BOARD_CREATE_POST_BUTTON}>게시글 작성</button>
+  `,
 };
