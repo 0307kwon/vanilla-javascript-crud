@@ -16,6 +16,9 @@ export default class PostsModel {
     this._posts.push(new Post(this._maxID, postTitle, postContents));
     this._maxID += 1;
   }
+  getOnePostByID(postID) {
+    return this._posts.find((post) => post.id === postID);
+  }
   getAllPosts() {
     return this._posts;
   }

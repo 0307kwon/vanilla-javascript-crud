@@ -1,4 +1,4 @@
-import { CLASS, CSS_STYLE, TEMPLATE } from "../common/variable.js";
+import { CLASS, CSS_STYLE } from "../common/variable.js";
 
 export function setInnerHTMLByID(id, innerHTML) {
   const container = document.getElementById(id);
@@ -36,7 +36,7 @@ function _appendTableList(table, tableList) {
 function _makeTableRow(index, post) {
   const tr = makeElement({ tag: "tr" });
   tr.appendChild(_makeTableTd(String(index)));
-  tr.appendChild(_makeTableTd(_makeLinkToReadPost(post.title)));
+  tr.appendChild(_makeTableTd(_makeLinkToReadPost(post.title, post.id)));
   tr.appendChild(_makeTableTd("작성자 모름"));
   tr.appendChild(_makeTableTd("조회수 모름"));
   return tr;
@@ -55,9 +55,9 @@ function _makeTableHeader(text) {
     innerHTML: text,
   });
 }
-function _makeLinkToReadPost(text) {
+function _makeLinkToReadPost(text, id) {
   return `
-  <a href="/" class=${CLASS.POST_READ_LINK}>
+  <a href="/" class=${CLASS.POST_READ_LINK} data-id=${id}>
     ${text}
   </a>
   `;

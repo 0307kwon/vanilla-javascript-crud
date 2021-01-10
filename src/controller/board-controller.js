@@ -1,4 +1,4 @@
-import { ALERT, ID, NAME } from "../common/variable.js";
+import { ALERT, CLASS, ID, NAME } from "../common/variable.js";
 import { setClickEventByID } from "../utility/html-utils.js";
 import Controller from "./controller.js";
 
@@ -17,9 +17,18 @@ export default class BoardController extends Controller {
       this.setCreateController();
     });
   }
+  setReadController(postID) {
+    const post = this.models.postsModel.getOnePostByID(postID);
+    this.view.setReadView(post);
+    this.innerController = null;
+  }
   setListController() {
     this.view.setListView(this.models.postsModel.getAllPosts());
-    this.innerController = null;
+    this.innerController = new ListInnerController(
+      this,
+      this.view,
+      this.models
+    );
   }
   setCreateController() {
     this.view.setCreateView();
@@ -28,6 +37,23 @@ export default class BoardController extends Controller {
       this.view,
       this.models
     );
+  }
+}
+
+class ListInnerController extends Controller {
+  constructor(parentController, view, models) {
+    super(view, models);
+    this.parentController = parentController;
+    this.initializeController();
+  }
+  initializeController() {
+    setClickEventByID(ID.BOARD_CONTENTS_CONTAINER, (event) => {
+      event.preventDefault();
+      if (event.target.className === CLASS.POST_READ_LINK) {
+        const postID = Number(event.target.dataset.id);
+        this.parentController.setReadController(postID);
+      }
+    });
   }
 }
 

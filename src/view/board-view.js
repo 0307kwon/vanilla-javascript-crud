@@ -14,11 +14,30 @@ export default class BoardView extends View {
   setMenu() {
     setInnerHTMLByID(ID.BOARD_MENU_CONTAINER, TEMPLATE.BOARD_MENU);
   }
+  setReadView(post) {
+    this.contentsView = new BoardReadView(post);
+  }
   setListView(boardList) {
     this.contentsView = new BoardListView(boardList);
   }
   setCreateView() {
     this.contentsView = new CreateView();
+  }
+}
+
+class BoardReadView extends View {
+  constructor(post) {
+    super({ post: post });
+  }
+  setInitialView() {
+    setInnerHTMLByID(ID.BOARD_CONTENTS_CONTAINER, this._makeReadTemplate());
+  }
+  _makeReadTemplate() {
+    const post = this._privateState.post;
+    return `
+    <h2>${post.title}</h2>
+    <p>${post.contents}</p>
+    `;
   }
 }
 
@@ -38,7 +57,6 @@ class BoardListView extends View {
 class CreateView extends View {
   constructor() {
     super();
-    this.setInitialView();
   }
   setInitialView() {
     setInnerHTMLByID(
