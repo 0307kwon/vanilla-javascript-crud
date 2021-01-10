@@ -78,5 +78,4 @@ export const TEMPLATE = {
     <button id=${ID.BOARD_CREATE_POST_BUTTON}>게시글 작성</button>
   </form>
   `,
-  
 };
