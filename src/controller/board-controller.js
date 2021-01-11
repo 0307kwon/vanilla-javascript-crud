@@ -6,7 +6,7 @@ export default class BoardController extends Controller {
   constructor(view, models) {
     super(view, models);
     this.innerController = null;
-    this.view.setListView(this.models.postsModel.getAllPosts());
+    this.setListController();
     this.initializeController();
   }
   initializeController() {
@@ -20,6 +20,7 @@ export default class BoardController extends Controller {
   setReadController(postID) {
     const post = this.models.postsModel.getOnePostByID(postID);
     this.view.setReadView(post);
+    this.view.setDisable({ disable: false });
     this.innerController = null;
   }
   setListController() {
@@ -29,6 +30,7 @@ export default class BoardController extends Controller {
       this.view,
       this.models
     );
+    this.view.setDisable({ disable: true });
   }
   setCreateController() {
     this.view.setCreateView();
@@ -37,6 +39,7 @@ export default class BoardController extends Controller {
       this.view,
       this.models
     );
+    this.view.setDisable({ disable: true });
   }
 }
 

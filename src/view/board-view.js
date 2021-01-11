@@ -1,5 +1,9 @@
 import { CSS_STYLE, ID, TEMPLATE } from "../common/variable.js";
-import { makeTable, setInnerHTMLByID } from "../utility/html-utils.js";
+import {
+  makeTable,
+  setDisableByID,
+  setInnerHTMLByID,
+} from "../utility/html-utils.js";
 import View from "./view.js";
 
 export default class BoardView extends View {
@@ -23,6 +27,10 @@ export default class BoardView extends View {
   setCreateView() {
     this.contentsView = new CreateView();
   }
+  setDisable({ disable = true }) {
+    setDisableByID(ID.BOARD_UPDATE_BUTTON, disable);
+    setDisableByID(ID.BOARD_DELETE_BUTTON, disable);
+  }
 }
 
 class BoardReadView extends View {
@@ -37,7 +45,7 @@ class BoardReadView extends View {
     return `
     <h2>${post.title}</h2>
     <hr style="${CSS_STYLE.HR}">
-    <pre>${post.contents}</pre>
+    <pre style="${CSS_STYLE.PRE}">${post.contents}</pre>
     `;
   }
 }

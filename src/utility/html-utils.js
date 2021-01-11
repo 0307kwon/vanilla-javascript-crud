@@ -22,6 +22,10 @@ export function makeElement({ tag = "div", cssText, innerHTML, className }) {
   if (className) element.className = className;
   return element;
 }
+export function setDisableByID(id, disable) {
+  const element = document.getElementById(id);
+  element.disabled = disable;
+}
 
 function _appendTableHeader(table, tableHeader) {
   tableHeader.forEach((element) => {
