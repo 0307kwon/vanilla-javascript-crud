@@ -1,4 +1,4 @@
-import { ID, TEMPLATE } from "../common/variable.js";
+import { CSS_STYLE, ID, TEMPLATE } from "../common/variable.js";
 import { makeTable, setInnerHTMLByID } from "../utility/html-utils.js";
 import View from "./view.js";
 
@@ -36,7 +36,8 @@ class BoardReadView extends View {
     const post = this._privateState.post;
     return `
     <h2>${post.title}</h2>
-    <p>${post.contents}</p>
+    <hr style="${CSS_STYLE.HR}">
+    <pre>${post.contents}</pre>
     `;
   }
 }

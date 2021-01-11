@@ -40,6 +40,7 @@ export const ALERT = {
 
 export const CSS_STYLE = {
   BOARD_TABLE: "text-align: center; border: solid 1px",
+  HR: "width:200px;text-align:left;margin-left:0",
 };
 
 export const TEMPLATE = {
