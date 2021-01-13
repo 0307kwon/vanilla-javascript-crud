@@ -19,8 +19,8 @@
 - read 기능 구현
   - 게시글 선택 시 글 내용이 보임(완료)
   - 게시글 read 페이지 스타일 완성(완료)
-- 게시글 read 페이지에서만 update, delete 버튼이 활성화 되도록 구현  
+- 게시글 read 페이지에서만 update, delete 버튼이 활성화 되도록 구현(완료)
 - update 기능 구현
-  
+  - update 페이지로 이동 구현
 - delete 기능 구현
 - 게시물 저장 기능 구현

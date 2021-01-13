@@ -51,13 +51,13 @@ export const TEMPLATE = {
   <button id=${ID.NAVIGATION_BOARD_BUTTON}>게시판</button>
   `,
   WELCOME_CONTENTS: `
-  <h3>🎈 환영합니다!</h3>
+  <h2>🎈 환영합니다!</h2>
   `,
   LOGIN_CONTENTS: `
-  <h3>💻 로그인 페이지</h3>
+  <h2>💻 로그인 페이지</h2>
   `,
   BOARD_CONTENTS: `
-  <h3>🎨 게시판 페이지</h3>
+  <h2>🎨 게시판 페이지</h2>
   <div id="${ID.BOARD_MENU_CONTAINER}"></div>
   <p></p>
   <div id="${ID.BOARD_CONTENTS_CONTAINER}"></div>
@@ -70,12 +70,25 @@ export const TEMPLATE = {
   `,
   BOARD_TABLE_HEADER: ["번호", "제목", "작성자", "조회수"],
   BOARD_CREATE_CONTENTS: `
+  <h3>💾 게시글 작성</h3>
   <form action="/" method="POST">
     <p>
       <input type="text" name=${NAME.BOARD_CREATE_POST_TITLE} placeHolder="제목을 입력하세요" />
     </p>
     <p>
       <textArea name=${NAME.BOARD_CREATE_POST_CONTENTS} placeHolder="내용을 입력하세요"></textArea>
+    </p>
+    <button id=${ID.BOARD_CREATE_POST_BUTTON}>게시글 작성</button>
+  </form>
+  `,
+  BOARD_UPDATE_CONTENTS: `
+  <h3>📑게시글 수정</h3>
+  <form action="/" method="POST">
+    <p>
+      <input type="text" name=${NAME.BOARD_CREATE_POST_TITLE} value="이전제목" />
+    </p>
+    <p>
+      <textArea name=${NAME.BOARD_CREATE_POST_CONTENTS}>이전내용</textArea>
     </p>
     <button id=${ID.BOARD_CREATE_POST_BUTTON}>게시글 작성</button>
   </form>

@@ -27,6 +27,9 @@ export default class BoardView extends View {
   setCreateView() {
     this.contentsView = new CreateView();
   }
+  setUpdateView() {
+    this.contentsView = new UpdataView();
+  }
   setDisable({ disable = true }) {
     setDisableByID(ID.BOARD_UPDATE_BUTTON, disable);
     setDisableByID(ID.BOARD_DELETE_BUTTON, disable);
@@ -71,6 +74,18 @@ class CreateView extends View {
     setInnerHTMLByID(
       ID.BOARD_CONTENTS_CONTAINER,
       TEMPLATE.BOARD_CREATE_CONTENTS
+    );
+  }
+}
+
+class UpdataView extends View {
+  constructor() {
+    super();
+  }
+  setInitialView() {
+    setInnerHTMLByID(
+      ID.BOARD_CONTENTS_CONTAINER,
+      TEMPLATE.BOARD_UPDATE_CONTENTS
     );
   }
 }

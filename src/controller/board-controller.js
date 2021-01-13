@@ -16,6 +16,9 @@ export default class BoardController extends Controller {
     setClickEventByID(ID.BOARD_CREATE_BUTTON, () => {
       this.setCreateController();
     });
+    setClickEventByID(ID.BOARD_UPDATE_BUTTON, () => {
+      this.setUpdateController();
+    });
   }
   setReadController(postID) {
     const post = this.models.postsModel.getOnePostByID(postID);
@@ -40,6 +43,9 @@ export default class BoardController extends Controller {
       this.models
     );
     this.view.setDisable({ disable: true });
+  }
+  setUpdateController() {
+    this.view.setUpdateView();
   }
 }
 
